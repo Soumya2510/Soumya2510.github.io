@@ -845,6 +845,7 @@
     </section>
 
     <!-- Contact Section -->
+        <!-- Contact Section (Updated for Real Emails) -->
     <section id="contact" class="container">
         <div class="section-header fade-in" style="text-align: center; margin-bottom: 50px;">
             <span style="color: var(--accent); font-weight: 600;">GET IN TOUCH</span>
@@ -887,26 +888,30 @@
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <form id="contactForm" onsubmit="handleSubmit(event)">
+            <!-- Contact Form (Connected to Formspree) -->
+            <form action="https://formspree.io/f/xpqqwwvd" method="POST">
                 <div class="grid-2" style="gap: 20px; grid-template-columns: 1fr 1fr; margin-bottom: 20px;">
                     <div class="form-group" style="margin:0;">
-                        <input type="text" placeholder="Your Name" required>
+                        <!-- Added name="name" -->
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group" style="margin:0;">
-                        <input type="email" placeholder="Your Email" required>
+                        <!-- Added name="email" -->
+                        <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <select aria-label="Service Type">
-                        <option>I need a Video Editor</option>
-                        <option>I need a Website</option>
-                        <option>I need both</option>
-                        <option>Other</option>
+                    <!-- Added name="service" -->
+                    <select name="service" aria-label="Service Type">
+                        <option value="Video Editor">I need a Video Editor</option>
+                        <option value="Website">I need a Website</option>
+                        <option value="Both">I need both</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+                    <!-- Added name="message" -->
+                    <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit" class="cta-btn" style="width: 100%; border-radius: 10px;">Send Message</button>
             </form>
@@ -1121,5 +1126,6 @@
     </script>
 </body>
 </html>
+
 
 
