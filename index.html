@@ -1,8 +1,9 @@
-htmlDownloadCopy code<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Soumya Sarkar - Video Editor & Creative Technologist.">
     <title>Soumya Sarkar | Creative Technologist & Video Editor</title>
     
     <!-- Fonts -->
@@ -45,6 +46,12 @@ htmlDownloadCopy code<!DOCTYPE html>
             cursor: none; /* Custom cursor */
         }
 
+        /* --- Accessibility: Focus States --- */
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         /* --- Custom Cursor --- */
         .cursor-dot,
         .cursor-outline {
@@ -72,6 +79,12 @@ htmlDownloadCopy code<!DOCTYPE html>
             width: 30px;
             height: 30px;
             background-color: rgba(6, 182, 212, 0.1);
+        }
+
+        /* Performance: Disable custom cursor on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .cursor-dot, .cursor-outline { display: none; }
+            body { cursor: auto; }
         }
 
         /* --- Typography --- */
@@ -166,6 +179,7 @@ htmlDownloadCopy code<!DOCTYPE html>
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
+            font-family: inherit;
         }
 
         .cta-btn:hover {
@@ -559,7 +573,10 @@ htmlDownloadCopy code<!DOCTYPE html>
             .timeline-item.right { left: 0; }
             .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
             .timeline-item.left { text-align: left; }
-            .nav-links { display: none; } /* Simplified mobile menu for brevity */
+            .nav-links { display: none; } 
+            
+            /* Disable canvas on mobile for performance */
+            #hero-canvas { opacity: 0.3; }
         }
         
         /* Utility for animation */
@@ -582,8 +599,8 @@ htmlDownloadCopy code<!DOCTYPE html>
 
     <!-- Mode Switcher (Interactive) -->
     <div class="mode-switch">
-        <button class="mode-btn active" onclick="setMode('tech')"><i class="fas fa-code"></i> Tech</button>
-        <button class="mode-btn" onclick="setMode('cinema')"><i class="fas fa-film"></i> Cinema</button>
+        <button class="mode-btn active" onclick="setMode('tech')" aria-label="Switch to Tech Mode"><i class="fas fa-code"></i> Tech</button>
+        <button class="mode-btn" onclick="setMode('cinema')" aria-label="Switch to Cinema Mode"><i class="fas fa-film"></i> Cinema</button>
     </div>
 
     <!-- Navigation -->
@@ -621,6 +638,7 @@ htmlDownloadCopy code<!DOCTYPE html>
     <section id="about" class="container">
         <div class="grid-2">
             <div class="about-img-wrapper fade-in">
+                <!-- IMPORTANT: Make sure you uploaded soumya.jpg to your GitHub repo -->
                 <img src="soumya.jpg" alt="Soumya Sarkar">
             </div>
             <div class="about-content fade-in">
@@ -629,7 +647,7 @@ htmlDownloadCopy code<!DOCTYPE html>
                     <h2>Crafting Visuals & Code</h2>
                 </div>
                 <p style="color: var(--text-muted); margin-bottom: 20px;">
-                    I am <strong>Soumya Sarkar</strong>, a passionate Video Editor and Web Developer based in Kolkata. Currently pursuing a BA in Film, Cinema, and Video Studies at Dinabandhu Andrews College (2026).
+                    I am <strong>Soumya Sarkar</strong>, a passionate Video Editor and Web Developer based in Kolkata. Currently pursuing mastery in Film, Cinema, and Video Studies at NOWHERE. I'M AN INDEPENDENT LEARNER.
                 </p>
                 <p style="color: var(--text-muted); margin-bottom: 30px;">
                     Since May 2021, I've been helping clients bring their visions to life through sharp editing and creative storytelling. Recently, I've expanded my toolkit to include Full-Stack Web Development, bridging the gap between narrative and interactivity.
@@ -742,9 +760,9 @@ htmlDownloadCopy code<!DOCTYPE html>
                 </div>
                 <div class="timeline-item left show-on-scroll">
                     <div class="timeline-content">
-                        <span style="color: var(--accent); font-size: 0.85rem; font-weight: 700;">AUG 2023 - 2026</span>
+                        <span style="color: var(--accent); font-size: 0.85rem; font-weight: 700;">AUG 2023 ~</span>
                         <h3>BA Film Studies</h3>
-                        <p style="color: var(--text-muted); margin-top: 10px;">Dinabandhu Andrews College. Studying film theory, production, and visual storytelling.</p>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Studying film theory, production, and visual storytelling.</p>
                     </div>
                 </div>
                 <div class="timeline-item right show-on-scroll">
@@ -778,10 +796,14 @@ htmlDownloadCopy code<!DOCTYPE html>
             <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration"></div>
-                    <i class="fas fa-film"></i>
+                    <!-- Project 1: Wedding Video -->
+<div class="project-thumb">
+    <!-- This plays the video automatically without sound -->
+    <video src="wedding.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+</div>
                 </div>
                 <div class="project-info">
-                    <h4>Cinematic Trailer</h4>
+                    <h4>Cinematic Wedding Trailer</h4>
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">Emotional storytelling with precise color grading.</p>
                     <div class="project-tags">
                         <span class="tag">Premiere Pro</span>
@@ -794,7 +816,10 @@ htmlDownloadCopy code<!DOCTYPE html>
             <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration" style="background: radial-gradient(circle at 70% 70%, rgba(99, 102, 241,0.1), transparent);"></div>
-                    <i class="fas fa-code"></i>
+                    <!-- Project 2: Website Image -->
+<div class="project-thumb">
+    <img src="ecommerce.jpg" alt="E-Commerce Website" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
                 </div>
                 <div class="project-info">
                     <h4>Modern E-Commerce UI</h4>
@@ -810,7 +835,10 @@ htmlDownloadCopy code<!DOCTYPE html>
             <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration"></div>
-                    <i class="fas fa-ad"></i>
+                    <!-- Project 3: Ad Video -->
+<div class="project-thumb">
+    <video src="ad.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+</div>
                 </div>
                 <div class="project-info">
                     <h4>Product Advertisement</h4>
@@ -861,9 +889,9 @@ htmlDownloadCopy code<!DOCTYPE html>
                 </div>
 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/soumya-sarkar-07a187251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/soumya_sarkar22?igsh=NXpnMWQ3bTVlYXYx" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1A1Q1Kxm3G/" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/soumya-sarkar-07a187251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/soumya_sarkar22?igsh=NXpnMWQ3bTVlYXYx" target="_blank" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/share/1A1Q1Kxm3G/" target="_blank" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
 
@@ -878,7 +906,7 @@ htmlDownloadCopy code<!DOCTYPE html>
                     </div>
                 </div>
                 <div class="form-group">
-                    <select>
+                    <select aria-label="Service Type">
                         <option>I need a Video Editor</option>
                         <option>I need a Website</option>
                         <option>I need both</option>
@@ -897,6 +925,7 @@ htmlDownloadCopy code<!DOCTYPE html>
         <p>&copy; 2026 Soumya Sarkar. All Rights Reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT LOGIC (IMPLEMENTED) -->
     <script>
         // --- 1. Custom Cursor Logic ---
         const cursorDot = document.querySelector('[data-cursor-dot]');
@@ -906,15 +935,16 @@ htmlDownloadCopy code<!DOCTYPE html>
             const posX = e.clientX;
             const posY = e.clientY;
 
-            // Dot follows instantly
-            cursorDot.style.left = `${posX}px`;
-            cursorDot.style.top = `${posY}px`;
+            // Only animate if cursor is visible (handled by CSS media query)
+            if(getComputedStyle(cursorDot).display !== 'none') {
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
 
-            // Outline follows with lag (animation in CSS)
-            cursorOutline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
+                cursorOutline.animate({
+                    left: `${posX}px`,
+                    top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            }
         });
 
         // --- 2. Scroll Animation (Intersection Observer) ---
@@ -923,9 +953,9 @@ htmlDownloadCopy code<!DOCTYPE html>
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    entry.target.classList.add('show'); // For timeline
+                    entry.target.classList.add('show'); 
                     
-                    // Trigger Stats Counter if stat-number
+                    // Trigger Stats Counter if it's the stats section
                     if(entry.target.querySelector('.stat-number')) {
                         startCounters();
                     }
@@ -933,7 +963,7 @@ htmlDownloadCopy code<!DOCTYPE html>
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
+        document.querySelectorAll('.fade-in, .timeline-item, .stats-grid').forEach(el => {
             observer.observe(el);
         });
 
@@ -945,7 +975,7 @@ htmlDownloadCopy code<!DOCTYPE html>
             const counters = document.querySelectorAll('.stat-number');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000; // 2 seconds
+                const duration = 2000; 
                 const increment = target / (duration / 16); 
                 
                 let current = 0;
@@ -962,7 +992,7 @@ htmlDownloadCopy code<!DOCTYPE html>
             });
         }
 
-        // --- 4. Interactive Hero Canvas (Particle/Starfield) ---
+        // --- 4. Interactive Hero Canvas (Optimized) ---
         const canvas = document.getElementById('hero-canvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -993,14 +1023,14 @@ htmlDownloadCopy code<!DOCTYPE html>
                 if (this.y > height) this.y = 0;
             }
             draw() {
-                ctx.fillStyle = `rgba(99, 102, 241, ${this.alpha})`; // Primary color
+                ctx.fillStyle = `rgba(99, 102, 241, ${this.alpha})`; 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
-        for (let i = 0; i < 100; i++) particles.push(new Particle());
+        for (let i = 0; i < 80; i++) particles.push(new Particle());
 
         function animateCanvas() {
             ctx.clearRect(0, 0, width, height);
@@ -1010,7 +1040,12 @@ htmlDownloadCopy code<!DOCTYPE html>
             });
             requestAnimationFrame(animateCanvas);
         }
-        animateCanvas();
+        
+        // Respect Reduced Motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (!prefersReducedMotion.matches) {
+            animateCanvas();
+        }
 
         // --- 5. Theme/Mode Switcher Logic ---
         function setMode(mode) {
@@ -1020,21 +1055,16 @@ htmlDownloadCopy code<!DOCTYPE html>
             buttons.forEach(btn => btn.classList.remove('active'));
             
             if (mode === 'cinema') {
-                // Warmer, darker cinematic tones
-                root.style.setProperty('--primary', '#e11d48'); // Rose
-                root.style.setProperty('--secondary', '#f59e0b'); // Amber
+                root.style.setProperty('--primary', '#e11d48'); 
+                root.style.setProperty('--secondary', '#f59e0b'); 
                 root.style.setProperty('--accent', '#fb7185'); 
                 buttons[1].classList.add('active');
-                
-                // Change text typewriter
                 document.getElementById('typewriter').innerText = "Cinematic Stories";
             } else {
-                // Tech/Cyber tones (Default)
-                root.style.setProperty('--primary', '#6366f1'); // Indigo
-                root.style.setProperty('--secondary', '#ec4899'); // Pink
-                root.style.setProperty('--accent', '#06b6d4'); // Cyan
+                root.style.setProperty('--primary', '#6366f1'); 
+                root.style.setProperty('--secondary', '#ec4899'); 
+                root.style.setProperty('--accent', '#06b6d4'); 
                 buttons[0].classList.add('active');
-                
                 document.getElementById('typewriter').innerText = "Digital Experiences";
             }
         }
@@ -1051,7 +1081,7 @@ htmlDownloadCopy code<!DOCTYPE html>
             // Simulate network request
             setTimeout(() => {
                 btn.innerText = 'Message Sent!';
-                btn.style.background = '#10b981'; // Success Green
+                btn.style.background = '#10b981'; 
                 e.target.reset();
                 
                 setTimeout(() => {
@@ -1063,7 +1093,6 @@ htmlDownloadCopy code<!DOCTYPE html>
         }
 
         // --- 7. Typewriter Effect ---
-        // Simple cycler for the hero text
         const roles = ["Visual Stories", "Web Applications", "Cinematic Edits", "Digital Experiences"];
         let roleIndex = 0;
         let charIndex = 0;
@@ -1085,7 +1114,7 @@ htmlDownloadCopy code<!DOCTYPE html>
 
             if (!isDeleting && charIndex === currentRole.length) {
                 isDeleting = true;
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000; 
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 roleIndex = (roleIndex + 1) % roles.length;
@@ -1095,10 +1124,8 @@ htmlDownloadCopy code<!DOCTYPE html>
             setTimeout(typeEffect, typeSpeed);
         }
         
-        // Start typewriter after initial load
         setTimeout(typeEffect, 1000);
 
     </script>
 </body>
-
 </html>
