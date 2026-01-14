@@ -44,9 +44,6 @@
             overflow-x: hidden;
             line-height: 1.6;
             cursor: none; /* Custom cursor */
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard syntax */
         }
 
         /* --- Accessibility: Focus States --- */
@@ -786,22 +783,16 @@
             <h2>Recent Masterpieces</h2>
         </div>
 
-        <!-- Filters (Active) -->
-        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;">
-            <button class="cta-btn filter-btn active" onclick="filterProjects('all', this)">All</button>
-            <button class="cta-btn filter-btn" style="background: var(--surface-light); border: 1px solid var(--border-glass);" onclick="filterProjects('films', this)">Short Films</button>
-            <button class="cta-btn filter-btn" style="background: var(--surface-light); border: 1px solid var(--border-glass);" onclick="filterProjects('web', this)">Websites</button>
-            <button class="cta-btn filter-btn" style="background: var(--surface-light); border: 1px solid var(--border-glass);" onclick="filterProjects('ads', this)">Commercials</button>
-        </div>
-
         <div class="portfolio-grid">
-            <!-- Project 1: Wedding Video -->
-            <div class="project-card fade-in" data-category="films">
+            <!-- Project 1 -->
+            <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration"></div>
-                    <div class="project-thumb">
-                        <video src="wedding.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-                    </div>
+                    <!-- Project 1: Wedding Video -->
+<div class="project-thumb">
+    <!-- This plays the video automatically without sound -->
+    <video src="wedding.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+</div>
                 </div>
                 <div class="project-info">
                     <h4>Cinematic Trailer</h4>
@@ -813,13 +804,14 @@
                 </div>
             </div>
 
-            <!-- Project 2: Website Image -->
-            <div class="project-card fade-in" data-category="web">
+            <!-- Project 2 -->
+            <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration" style="background: radial-gradient(circle at 70% 70%, rgba(99, 102, 241,0.1), transparent);"></div>
-                    <div class="project-thumb">
-                        <img src="ecommerce.png" alt="E-Commerce Website" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                    <!-- Project 2: Website Image -->
+<div class="project-thumb">
+    <img src="ecommerce.png" alt="E-Commerce Website" style="width: 100%; height: 100%; object-fit: cover;">
+</div>
                 </div>
                 <div class="project-info">
                     <h4>Modern E-Commerce UI</h4>
@@ -831,13 +823,14 @@
                 </div>
             </div>
 
-            <!-- Project 3: Ad Video -->
-            <div class="project-card fade-in" data-category="ads">
+            <!-- Project 3 -->
+            <div class="project-card fade-in">
                 <div class="project-thumb">
                     <div class="ui-decoration"></div>
-                    <div class="project-thumb">
-                        <video src="ad.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
-                    </div>
+                    <!-- Project 3: Ad Video -->
+<div class="project-thumb">
+    <video src="ad.mp4" autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+</div>
                 </div>
                 <div class="project-info">
                     <h4>Product Advertisement</h4>
@@ -1124,63 +1117,6 @@
         }
         
         setTimeout(typeEffect, 1000);
-
-        // --- 8. Portfolio Filtering Logic (IMPLEMENTED) ---
-        function filterProjects(category, btn) {
-            // 1. Update Buttons Styling
-            document.querySelectorAll('.filter-btn').forEach(button => {
-                button.classList.remove('active');
-                button.style.background = 'var(--surface-light)';
-            });
-            btn.classList.add('active');
-            btn.style.background = 'var(--gradient-main)';
-
-            // 2. Filter Items
-            const projects = document.querySelectorAll('.project-card');
-            
-            projects.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                if (category === 'all' || category === cardCategory) {
-                    card.style.display = 'block';
-                    // slight animation reset
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        }
-
-        // --- 9. Anti-Theft Protection (IMPLEMENTED) ---
-        // Disable Right Click
-        document.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
-        });
-
-        // Disable Keyboard Shortcuts for inspection
-        document.onkeydown = function (e) {
-            if (event.keyCode == 123) { // F12
-                return false;
-            }
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) {
-                return false;
-            }
-            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-                return false;
-            }
-        };
-
-        // Disable Dragging Images
-        document.querySelectorAll('img').forEach(img => {
-            img.setAttribute('draggable', 'false');
-        });
 
     </script>
 </body>
